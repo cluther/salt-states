@@ -2,6 +2,7 @@ common_packages:
   pkg.installed:
     - names:
       - man
+      - which
       - telnet
       - wget 
       - mosh
