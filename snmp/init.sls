@@ -4,7 +4,7 @@ net-snmp-utils:
 /etc/snmp/snmp.conf:
   file.managed:
     - source: salt://snmp/snmp.conf
-    - required:
+    - require:
       - pkg.installed: net-snmp-utils
 
 net-snmp:
@@ -13,11 +13,13 @@ net-snmp:
 /etc/snmp/snmpd.conf:
   file.managed:
     - source: salt://snmp/snmpd.conf
-    - required:
+    - require:
       - pkg.installed: net-snmp
 
 snmpd:
   service.running:
     - enabled: True
+    - require:
+      - file: /etc/snmp/snmpd.conf
     - watch:
       - file: /etc/snmp/snmpd.conf

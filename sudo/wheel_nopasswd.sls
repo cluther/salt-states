@@ -4,5 +4,5 @@ include:
 /etc/sudoers:
   file.append:
     - text: "%wheel ALL=(ALL) NOPASSWD: ALL"
-    - required:
+    - require:
       - pkg.installed: sudo

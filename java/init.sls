@@ -5,5 +5,5 @@
 "rpm -ivh /root/jdk-6u32-linux-amd64.rpm":
   cmd.run:
     - unless: rpm -q jdk
-    - required:
+    - require:
       - file.managed: /root/jdk-6u32-linux-amd64.rpm
