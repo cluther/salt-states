@@ -1,6 +1,7 @@
 include:
   - mysql
   - java
+  - snmp
 
 "rpm -ivh http://deps.zenoss.com/yum/zenossdeps.el5.noarch.rpm":
   cmd.run:
