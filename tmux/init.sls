@@ -1,5 +1,6 @@
 tmux:
-  pkg.installed
+  pkg.installed:
+    - repo: epel
 
 /etc/tmux.conf:
   file.managed:
