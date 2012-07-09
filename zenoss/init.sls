@@ -10,9 +10,8 @@ include:
 centos_packages:
   pkg.installed:
     - names:
+      - which
       - perl-DBI
-      - net-snmp
-      - net-snmp-utils
       - gmp
       - libgomp
       - libgcj
@@ -30,10 +29,30 @@ zenoss_packages:
       - rabbitmq-server
       - memcached
 
-required_services:
+rabbitmq-server:
   service.running:
     - enable: True
-    - names:
-      - rabbitmq-server
-      - memcached
-      - snmpd
+    - require:
+      - pkg.installed: rabbitmq-server
+
+memcached:
+  service.running:
+    - enable: True
+    - require:
+      - pkg.installed: memcached
+
+/root/zenoss-4.1.1-1396.el5.x86_64.rpm:
+  file.managed:
+    - source: salt://zenoss/zenoss-4.1.1-1396.el5.x86_64.rpm
+
+"rpm --nodeps -ivh /root/zenoss-4.1.1-1396.el5.x86_64.rpm":
+  cmd.run:
+    - unless: rpm -q zenoss
+    - require:
+      - file.managed: /root/zenoss-4.1.1-1396.el5.x86_64.rpm
+
+zenoss:
+  service.running:
+    - enable: True
+    - require:
+      - cmd.run: rpm --nodeps -ivh /root/zenoss-4.1.1-1396.el5.x86_64.rpm
