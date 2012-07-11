@@ -14,3 +14,4 @@ include:
   - sudo.wheel_nopasswd
   - tmux
   - snmp
+  - vim
