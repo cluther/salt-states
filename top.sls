@@ -1,6 +1,6 @@
 base:
   '*':
-    {% if grains['os'] == 'Linux' %}
+    {% if grains['kernel'] == 'Linux' %}
     - linux
     {% endif %}
 
