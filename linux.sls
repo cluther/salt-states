@@ -8,6 +8,7 @@ common_packages:
       - mosh
       - tree
       - git
+      - subversion
 
 include:
   - selinux.disabled
