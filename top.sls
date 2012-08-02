@@ -4,5 +4,5 @@ base:
     - linux
     {% endif %}
 
-  'zd*':
-    - zenoss.zenpackdev
+  'zd1-cluther.novalocal':
+    - zenoss.builddeps
