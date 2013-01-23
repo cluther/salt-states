@@ -1,0 +1,5 @@
+[zenoss-core]
+name=Zenoss Core Packages and Dependencies
+baseurl=file:/srv/yum/zenoss-core/el6/$basearch
+enabled=0
+gpgcheck=0

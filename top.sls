@@ -1,8 +1,8 @@
 base:
-  '*':
-    {% if grains['kernel'] == 'Linux' %}
-    - linux
-    {% endif %}
+  '* and G@nodename:zenoss':
+    - match: compound
+    - zenoss
 
-  'zd1-cluther.novalocal':
-    - zenoss.builddeps
+  '* and G@os_family:RedHat':
+    - match: compound
+    - yum

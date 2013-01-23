@@ -1,26 +1,91 @@
-include:
-  - zenoss.deps
+### Repository ###############################################################
 
-/root/zenoss-4.1.1-1396.el5.x86_64.rpm:
+# Replace this with pkgrepo once it's available.
+"/etc/yum.repos.d/zenoss-core.repo":
   file.managed:
-    - source: salt://zenoss/zenoss-4.1.1-1396.el5.x86_64.rpm
+    - source: "salt://zenoss/zenoss-core.repo"
 
-/root/zenoss-core-zenpacks-4.1.1-1396.el5.x86_64.rpm:
-  file.managed:
-    - source: salt://zenoss/zenoss-core-zenpacks-4.1.1-1396.el5.x86_64.rpm
 
-/root/zenoss-enterprise-zenpacks-4.1.1-1396.el5.x86_64.rpm:
-  file.managed:
-    - source: salt://zenoss/zenoss-enterprise-zenpacks-4.1.1-1396.el5.x86_64.rpm
+### MySQL ####################################################################
 
-"rpm --nodeps -ivh /root/zenoss-4.1.1-1396.el5.x86_64.rpm":
-  cmd.run:
-    - unless: rpm -q zenoss
+"MySQL-server":
+  pkg.installed:
+    - repo: "zenoss-core"
     - require:
-      - file.managed: /root/zenoss-4.1.1-1396.el5.x86_64.rpm
+      - file: "/etc/yum.repos.d/zenoss-core.repo"
 
-zenoss:
+"mysql":
   service.running:
     - enable: True
     - require:
-      - cmd.run: rpm --nodeps -ivh /root/zenoss-4.1.1-1396.el5.x86_64.rpm
+      - pkg: "MySQL-server"
+
+
+### RabbitMQ #################################################################
+
+"rabbitmq-server":
+  pkg.installed:
+    - repo: "zenoss-core"
+    - require:
+      - file: "/etc/yum.repos.d/zenoss-core.repo"
+
+  service.running:
+    - enable: True
+    - require:
+      - pkg: "rabbitmq-server"
+
+
+### memcached ################################################################
+
+"memcached":
+  pkg:
+    - installed
+
+  service.running:
+    - enable: True
+    - require:
+      - pkg: "memcached"
+
+
+### Zenoss ###################################################################
+
+"zenoss":
+  pkg.installed:
+    - repo: "zenoss-core"
+    - require:
+      - file: "/etc/yum.repos.d/zenoss-core.repo"
+      - service: "mysql"
+
+  service.running:
+    - enable: True
+    - require:
+      - pkg: "zenoss"
+      - file: "/opt/zenoss/var/zenpack_actions.txt"
+      - file: "/opt/zenoss/etc/DAEMONS_TXT_ONLY"
+      - file: "/opt/zenoss/etc/daemons.txt"
+
+# Prevent ZenPacks from being installed on first startup.
+"/opt/zenoss/var/zenpack_actions.txt":
+  file.managed:
+    - source: "salt://zenoss/zenpack_actions.txt"
+    - user: zenoss
+    - group: zenoss
+    - require:
+      - pkg: "zenoss"
+
+# Allow control (in daemons.txt) of which daemons run.
+"/opt/zenoss/etc/DAEMONS_TXT_ONLY":
+  file.managed:
+    - user: zenoss
+    - group: zenoss
+    - require:
+      - pkg: "zenoss"
+
+# Control which daemons will run.
+"/opt/zenoss/etc/daemons.txt":
+  file.managed:
+    - source: "salt://zenoss/daemons.txt"
+    - user: zenoss
+    - group: zenoss
+    - require:
+      - pkg: "zenoss"

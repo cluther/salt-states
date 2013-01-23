@@ -4,7 +4,7 @@ common_packages:
       - man
       - which
       - telnet
-      - wget 
+      - wget
       - mosh
       - tree
       - git
@@ -12,6 +12,7 @@ common_packages:
 
 include:
   - selinux.disabled
+  - iptables.disabled
   - sudo.wheel_nopasswd
   - tmux
   - snmp
