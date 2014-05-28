@@ -1,5 +1,5 @@
 [zenoss-core]
 name=Zenoss Core Packages and Dependencies
-baseurl=file:/srv/yum/zenoss-core/el6/$basearch
-enabled=0
+baseurl=http://salt/zenoss-core/el6/$basearch
+enabled=1
 gpgcheck=0

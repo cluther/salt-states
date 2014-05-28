@@ -10,3 +10,10 @@ base:
   '* and G@nodename:tomcat and G@osfullname:Ubuntu':
     - match: compound
     - tomcat7
+
+  '* and G@nodename:rabbitmq and G@osfullname:Ubuntu':
+    - match: compound
+    - rabbitmq
+
+  'ef2403cc8345':
+    - zenoss

@@ -1,6 +1,1 @@
 zeneventserver
-zeneventd
-zenhub
-zenjobs
-zopectl
-zenactiond

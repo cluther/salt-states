@@ -10,7 +10,6 @@
 
 "MySQL-server":
   pkg.installed:
-    - repo: "zenoss-core"
     - require:
       - file: "/etc/yum.repos.d/zenoss-core.repo"
 
@@ -25,7 +24,6 @@
 
 "rabbitmq-server":
   pkg.installed:
-    - repo: "zenoss-core"
     - require:
       - file: "/etc/yum.repos.d/zenoss-core.repo"
 
@@ -47,11 +45,17 @@
       - pkg: "memcached"
 
 
+### Other Dependencies #######################################################
+
+"which":
+  pkg:
+    - installed
+
+
 ### Zenoss ###################################################################
 
 "zenoss":
   pkg.installed:
-    - repo: "zenoss-core"
     - require:
       - file: "/etc/yum.repos.d/zenoss-core.repo"
       - service: "mysql"
