@@ -17,3 +17,7 @@ base:
 
   'ef2403cc8345':
     - zenoss
+
+  'devchet':
+    - tmux
+    - zendev

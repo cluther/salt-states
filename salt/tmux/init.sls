@@ -1,8 +1,9 @@
-tmux:
+tmux-install:
   pkg.installed:
-    - repo: epel
+    - name: tmux
 
-/etc/tmux.conf:
+tmux-config:
   file.managed:
+    - name: /etc/tmux.conf
     - source: salt://tmux/tmux.conf
     - mode: 644

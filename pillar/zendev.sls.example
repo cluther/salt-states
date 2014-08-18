@@ -1,0 +1,47 @@
+zendev:
+  username: joeshmoe
+  fullname: Joe Shmoe
+
+  id_rsa: |
+      -----BEGIN RSA PRIVATE KEY-----
+      MIIEpAIBAAKCAQEAv5bJVy7OPU1hzWEF/3Z6YBng5TLIs5yrGBFCLRTvE5LxVYHi
+      7IEmmagrvW1J4dlpOQwhWw7jPNaUUatGy8p5GQ6SCy0YTgKx/+7RlSwpHHqRE7r8
+      hgnNtn1vI4FhHZ0ZwyWGFi1ND9zCr2fr6odWkOZVEgfPMopbfRkdcCdSXbwqUwFG
+      ArzlF5JoJjdgqteVn/t5lF1rGubZ9JHepIVxo3BZdrzK/uqQgu3xAya0N3ljPvht
+      whwTwRdj1gvqqSNlvsZTtfT9RtkacI7b7A3ejNjfPJgaopvXOTty60p7N+L18WRF
+      T91G5OS2oGMabWNzeZGILiCY2CzpL5yO9xdMNwIDAQABAoIBAQCo3Nsa94sZpvGT
+      1nc14ZQczdJV0TvqayS18sgz+eZ6hyIkrnV25KJD/mCG9iOPZ1OBz3o6ytVoUuyp
+      St/8ULoJZrk8FoP8hg2jOTgKVcDqc/EYxc86yLtCpC3nymnxcv047gLP2x+34mjJ
+      tzvNG3ol/o1udemebyoSCafTqSTErcTfBVamts+gAXKXa6QrEAiTv26aHMegoxF6
+      8KVvmpMwQP9oKURIAVVa8Uf/EL1vPMaJ93wRnMwAps6cvhgNulj/DmcbmDn3dr4x
+      NioAGtVIwBENbTtxPMKJFjTo586EDezcvn6BCeSA2iJlxI4PgAYP2IYxYs2t5DsW
+      ck3dO1iZAoGBAOFwLdEeuWRjqaoGGVhhS5HFzYoTJVB1uIR2vCGYd0CymL7aQilB
+      U+5axLlCX0npsW2bqbDKOB2KAjvtzvPAA55jE/9L7k2GeXhPiA6DRCUMrmcEaw/d
+      oR+Y0fiyvlJSQqJib/BNCESwYoN6c7MaPFRlTzI+QVtsPdOHGpWnRh3bAoGBANmP
+      34awYCMKLQJR2eFhhKjhKyMyMTRrWbaAXW7L2tbyhEJTuNBZha4HWm4OPIs197Et
+      8RrtvNInvF2wuJNaaSDBueGHx8p5B7OSu/yKmqkXViffDJMUU8cCqx9u0B8Bbhma
+      mG96/zYSox1Lfunv6u8FKVXMzWoeY6p4O9MH8+/VAoGAM+58j3TNbkPLHMCk7AgV
+      uXHghFMewGct503WzsJpjjzWFPkATrKe3ASK1sZkXwl3dvFp6LDctmlJVHbWuq3b
+      54uZWrEqJy+4Ia/ofrdcZlCCiHarFw+OA1JX5DuAvkP216Nnd+q24ePj/beimXqM
+      tUBVOxS+R4oqv+SaiijrbQsCgYBsca2Oen4BGUJkJJ6BHFW+xDX3Xj5ujY/zSzrH
+      Tm+vssTANvEpUWYz39BwiUIedfEX7PmAXb4/1rSq0rq+IFPEkyvvQfoRb5CqLtrr
+      P79lx48XYrPm4Dv+N9NKYLb2rYTO2GNhNiLeNh3+LTJ+syscpyr6bJJ7cdhmEXZo
+      c09hXQKBgQCVmXhrqzSVRLvIzanT1h+eNafzEnJskCFnXPkioxWx5EtEBnuaDTwX
+      1F1qWHYVXEbm/oNpUY/bhOt5KqejfAupAGE3PMIfMxsVL6RYiMHmiqjSRg5pL+Vq
+      hmqOfluLbS5HDUMTiSYMDxFIqUH7fN1380LcNAQQ50zRqq+bO/CF+w==
+      -----END RSA PRIVATE KEY-----
+
+  id_rsa.pub: |
+      ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC/lslXLs49TWHNYQX/dnpgGeDlMsiznKsYEUItFO8TkvFVgeLsgSaZqCu9bUnh2Wk5DCFbDuM81pRRq0bLynkZDpILLRhOArH/7tGVLCkcepETuvyGCc22fW8jgWEdnRnDJYYWLU0P3MKvZ+vqh1aQ5lUSB88yilt9GR1wJ1JdvCpTAUYCvOUXkmgmN2Cq15Wf+3mUXWsa5tn0kd6khXGjcFl2vMr+6pCC7fEDJrQ3eWM++G3CHBPBF2PWC+qpI2W+xlO19P1G2RpwjtvsDd6M2N88mBqim9c5O3LrSns34vXxZEVP3Ubk5LagYxptY3N5kYguIJjYLOkvnI73F0w3 joeshmoe@example.com
+
+  gitconfig: |
+    [user]
+      name = Joe Shmoe
+      email = joeshmoe@example.com
+
+  docker_opts: -dns=8.8.8.8
+
+  dockerhub:
+    username: joeshmoe
+    email: joeshmoe@example.com
+    password: thisisnotmypassword
